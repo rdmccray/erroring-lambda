@@ -2,8 +2,18 @@
 
 Just starting out learning Python and how to code in general. The cloud interests me so thought I would start with a little Lambda function that is supposed to error 50% of the time which triggers an alarm and sends me an email from SNS. This function is triggered on a schedule via EventBridge at a rate of once every minute.
 
-```aws cli command to create custom metric
+aws cli command to create the SNS topic
+```
+aws sns create-topic --name MyAppAlerts
+aws sns subscribe \
+  --topic-arn arn:aws:sns:us-east-1:123456789012:MyAppAlerts \
+  --protocol email \
+  --notification-endpoint you@example.com
+```
 
+
+aws cli command to create the custom metric.
+```
 aws cloudwatch put-metric-alarm \
   --alarm-name "HighHTTP500Errors" \
   --metric-name HTTP500Count \
