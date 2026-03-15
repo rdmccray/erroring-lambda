@@ -21,7 +21,7 @@ aws cloudwatch put-metric-alarm \
   --statistic Sum \
   --period 300 \
   --threshold 5 \
-  --comparison-operator GreaterThanThreshold \
+  --comparison-operator GreaterThanOrEqualToThreshold \
   --evaluation-periods 1 \
   --alarm-actions arn:aws:sns:us-east-1:123456789012:MyAppAlerts \
   --treat-missing-data notBreaching
